@@ -1,0 +1,24 @@
+@use "sass:map";
+
+$color-white: #fff;
+$color-black: #000;
+$color-main: #0c2944;
+$color-primary: #164669;
+$color-secondary: #970000;
+$color-hyperlink: #709deb;
+
+$color-lightgray: #f2f2f3;
+$color-lightgray-2: #f3f3f4;
+$color-lightgray-3: #939597;
+$color-darkgray: #707070;
+$color-darkgreen: #69a297;
+$color-warning: #b9bbb2;
+
+:export {
+    colorMain:$color-main;
+    colorBlack: $color-black;
+    colorSecondary: $color-secondary;
+    colorHyperlink:$color-hyperlink;
+    colorWhite: $color-white;
+    colorLightgray3: $color-lightgray-3;
+}

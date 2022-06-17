@@ -1,0 +1,62 @@
+@import "/src/assets/scss/shared";
+
+.action_item {
+  @include display-flex;
+  position: relative;
+
+  &__timestamp {
+    font-family: "Roboto-Bold";
+    font-size: 9px;
+    color: $color-primary;
+    margin-right: 10px;
+    padding-top: 2px;
+    width: 20px;
+    // text-align: right;
+  }
+
+  &__speaker {
+    font-family: "Roboto-Bold";
+    font-size: 11px;
+    color: $color-lightgray-3;
+    margin: 0;
+    margin-bottom: 7px;
+  }
+
+  &__description {
+    font-size: 11px;
+    color: $color-primary;
+    font-family: "Roboto";
+    font-weight: 100;
+    padding-right: 30px;
+    // text-align: justify;
+    
+  }
+
+  &__delete_button {
+    position: absolute;
+    top: 0;
+    right: 10px;
+  }
+}
+
+.trash_confirm_container{
+  position: absolute;
+  right: 10px;
+  display: flex;
+  column-gap: 20px;
+  button{
+    font-family: 'Roboto'!important;
+    font-weight: 500!important;
+    font-size: 11px!important;
+  }
+}
+.primary_btn{
+  background-color: $color-hyperlink;
+  color:$color-white;
+  border-radius: 16px;
+  width: 135px;
+  height: 20px;
+}
+.secondary_btn{
+
+}

@@ -1,0 +1,175 @@
+@import "/src/assets/scss/shared";
+.meetings {
+    &_space {
+        margin-top: 48px;
+    }
+
+    @include media-breakpoint-up("lg") {
+        &_space {
+            margin-top: 36px;
+        }
+    }
+
+    @include media-breakpoint-up("xxl") {
+        &_space {
+            margin-top: 57px;
+        }
+    }
+}
+.meetings_page__title {
+    width: 315px !important;
+    text-align: center;
+    @include media-breakpoint-up("lg") {
+        width: 500px !important;
+    }
+
+    div {
+        display: flex !important;
+        justify-content: center;
+        column-gap: 10px;
+        min-height: 0px !important;
+        height: 20px;
+    }
+    button {
+        width: fit-content !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        text-transform: none !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+        padding: 0;
+        color: $color-main;
+
+        @include media-breakpoint-up("lg") {
+            font-size: 18px !important;
+            text-transform: uppercase !important;
+        }
+    }
+    button.Mui-selected {
+        color: $color-hyperlink;
+    }
+}
+
+.meeting_panel {
+    @include media-breakpoint-up("lg") {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.tap_panel {
+    display: unset;
+    justify-content: unset;
+    
+    @include media-breakpoint-up("lg") {
+        display: flex;
+        justify-content: center;
+    }
+
+    @include media-breakpoint-up("xxxl") {
+        & > div {
+            width: 100%;
+        }
+    }
+}
+
+.meetingContainer {
+    padding: 16px;
+    @include media-breakpoint-up("lg") {
+        min-width: 500px;
+        max-width: 650px;
+    }
+
+    @include media-breakpoint-up("xxxl") {
+        min-width: unset;
+        max-width: unset;
+    }
+}
+
+.delete_select_all {
+    font-size: 9px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    input::before,
+    input:checked,
+    input:not {
+        border: 2px solid $color-hyperlink;
+    }
+
+    input::after,
+    input:checked,
+    input:not {
+        border: 2px solid $color-hyperlink;
+    }
+}
+
+.delete_meetings {
+    height: 25px;
+    width: 121px;
+    text-align: center;
+    font-size: 9px;
+    font-family: Roboto;
+    background-color: $color-hyperlink;
+    color: $color-white;
+}
+
+.meeting_delete_actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.meeting_date_line {
+    position: fixed;
+    top: 260px;
+    left: 10%;
+    height: 70%;
+
+    &::before {
+        border-left: 1px solid black;
+        content: "";
+        display: block;
+        height: 33%;
+        left: 50%;
+        width: 1px;
+        z-index: 0;
+        margin-left: 50%;
+    }
+
+    &::after {
+        border-left: 1px solid black;
+        content: "";
+        display: block;
+        height: 33%;
+        left: 50%;
+        width: 1px;
+        z-index: 0;
+        margin-left: 50%;
+    }
+
+    span {
+        display: inline-block;
+        text-align: center;
+        padding-top: 63%;
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        font-size: 14px;
+        height: 170px;
+        font-family: Roboto;
+    }
+}
+
+.meeting_day_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 70px;
+    padding: 0px 210px;
+}
+
+.meeting_card_container {
+}

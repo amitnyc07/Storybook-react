@@ -1,0 +1,67 @@
+@use "sass:map";
+
+$device-size: (
+  "xs": 0px,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1440px,
+  "xxxl": 1920px,
+);
+
+@function next-device-size($size) {
+  @if $size == "xs" {
+    @return "sm";
+  }
+
+  @if $size == "sm" {
+    @return "md";
+  }
+
+  @if $size == "md" {
+    @return "lg";
+  }
+
+  @if $size == "xl" {
+    @return "xxl";
+  }
+
+  @if $size == "xxl" {
+    @return "xxxl";
+  }
+
+  @return "xxxl";
+}
+
+@mixin media-breakpoint-between($size1, $size2) {
+  @media (min-width: map.get($device-size, $size1)) and (max-width: (map.get($device-size, $size2) - 0.02px)) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-only($size) {
+  @include media-breakpoint-between($size, next-device-size($size)) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($size) {
+  @if $size == "xs" {
+    @content;
+  } @else {
+    @media (max-width: (map.get($device-size, $size) - 0.02px)) {
+      @content;
+    }
+  }
+}
+
+@mixin media-breakpoint-up($size) {
+  @if $size == "xs" {
+    @content;
+  } @else {
+    @media (min-width: map.get($device-size, $size)) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import "/src/assets/scss/shared";
+
+.editable_text {
+  padding: 0;
+  border: none;
+  outline: none;
+  margin-right: 8px;
+  text-overflow: ellipsis;
+  background-color: transparent;
+
+  &__form {
+    @include display-flex {
+      position: relative;
+      align-items: center;
+    }
+  }
+
+  &_textarea {
+    padding: 0;
+    border: none;
+    outline: none;
+    resize: none;
+    margin-right: 8px;
+    text-overflow: ellipsis;
+    background-color: transparent;
+  }
+}
+
+.icon {
+  width: auto;
+  height: 16px;
+  visibility: hidden;
+
+  &--visible {
+    visibility: visible;
+  }
+}

@@ -1,0 +1,65 @@
+@import "/src/assets/scss/shared";
+
+.picker {
+  position: absolute;
+  z-index: 10;
+  margin-top: 8px;
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__placeholder {
+    @include display-flex {
+      align-items: center;
+    }
+
+    span {
+      @include display-flex {
+        font-family: "Roboto-Bold";
+        font-size: 11px;
+        color: $color-main;
+      }
+    }
+
+    @include media-breakpoint-up("lg") {
+      &__time::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background-color: $color-hyperlink;
+        border-radius: 50%;
+        margin: auto 8px;
+      }
+    }
+
+    @include media-breakpoint-up("xxl") {
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.icon {
+  &__calendar {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+
+    * {
+      fill: $color-main;
+    }
+  }
+
+  &__pencil {
+    width: 10px;
+    height: 10px;
+    margin-left: 8px;
+    visibility: hidden;
+
+    &--visible {
+      visibility: visible;
+    }
+  }
+}

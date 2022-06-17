@@ -1,0 +1,88 @@
+@use "sass:map";
+@use "sass:list";
+@import "/src/assets/scss/shared";
+
+.modal {
+  border-radius: 10px;
+  padding: 10px 15px;
+  width: 200px;
+
+  &__title {
+    color: $color-main;
+    font-family: "Roboto-Medium";
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
+}
+
+.button {
+  &__close {
+    @include display-flex {
+      position: absolute;
+      align-items: center;
+      justify-content: center;
+      top: 12px;
+      right: 12px;
+    }
+
+    svg * {
+      fill: $color-main;
+    }
+  }
+}
+
+$participant-colors: $color-main, $color-hyperlink, $color-lightgray-3, #a0daa8, #e9897e, #f5df4d, #0f5834, #9cb7d4, $color-primary, #a186be;
+
+.participant {
+  @include display-flex {
+    align-items: center;
+    justify-content: space-between;
+
+    &:not(:first-child) {
+      margin-top: 4px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 4px;
+    }
+  }
+
+  &::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $color-main;
+  }
+
+  @for $i from 1 through 10 {
+    &:nth-child(10n + #{$i})::before {
+      background-color: list.nth($participant-colors, $i);
+    }
+  }
+
+  &__wrapper {
+    @include display-flex(column) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  &__form {
+    width: calc(100% - 30px);
+  }
+
+  &__input {
+    font-family: "Roboto-Bold";
+    font-size: 14px;
+    line-height: 28px;
+    color: $color-primary;
+    width: calc(100% - 24px);
+  }
+
+  &__icon {
+    width: 14px;
+    height: auto;
+  }
+}

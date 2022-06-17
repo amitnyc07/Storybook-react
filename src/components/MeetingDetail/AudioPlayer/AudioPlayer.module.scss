@@ -1,0 +1,141 @@
+@import "/src/assets/scss/shared";
+
+.container {
+  position: fixed;
+  background-color: $color-main;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 105px;
+
+  &--opened {
+    padding-left: 256px;
+  }
+}
+
+.progress_bar {
+  position: absolute;
+  left: 0px;
+  top: -6px;
+  right: 0px;
+  background-color: $color-lightgray-2;
+  height: 6px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: $color-hyperlink;
+  }
+
+  &::before {
+    left: 0;
+    top: 0px;
+    height: 6px;
+    width: var(--progress_bar__percentage);
+  }
+
+  &::after {
+    width: 12px;
+    height: 12px;
+    left: calc(var(--progress_bar__percentage, 0) - 6px);
+    top: -3px;
+    border-radius: 50%;
+  }
+}
+
+.main {
+  @include display-flex(column) {
+    justify-content: space-between;
+    padding: 8px 16px;
+    height: 100%;
+  }
+}
+
+.time {
+  @include display-flex {
+    align-items: center;
+    margin-left: auto;
+    color: $color-white;
+    font-size: 9px;
+    line-height: 11px;
+  }
+}
+
+.control {
+  &__wrapper {
+    @include display-flex {
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+    }
+
+    @include media-breakpoint-up("lg") {
+      max-width: 350px;
+    }
+  }
+
+  &__rate {
+    position: absolute;
+    left: 24px;
+    width: 30px;
+
+    button {
+      font-family: "Roboto-Bold";
+      font-size: 14px;
+      line-height: 20px;
+      color: $color-white;
+    }
+
+    &__menu {
+      @include display-flex(column) {
+        position: absolute;
+        bottom: 20px;
+        background-color: $color-main;
+        overflow: hidden;
+      }
+
+      button {
+        font-family: "Roboto-Regular";
+        font-size: 11px;
+        line-height: 20px;
+        margin: 0 5px;
+        text-align: left;
+
+        &:hover {
+          color: $color-hyperlink;
+        }
+      }
+
+      &--closed {
+        height: 0px;
+      }
+
+      &--opened {
+        height: 80px;
+      }
+    }
+  }
+
+  &__play {
+    @include display-flex {
+      width: 35px;
+      height: 35px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-left: 32px;
+      margin-right: 32px;
+    }
+
+    &--playing {
+      background-color: $color-white;
+    }
+
+    &--paused {
+      background-color: $color-main;
+    }
+  }
+}

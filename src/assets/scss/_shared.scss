@@ -1,0 +1,35 @@
+@import "colors";
+@import "grid";
+@import "variables";
+
+@mixin display-flex($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  @content;
+}
+
+@mixin button($size: "medium") {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  @if $size == "small" {
+    width: 130px;
+    height: 30px;
+  }
+
+  @if $size == "medium" {
+    width: 180px;
+    height: 38px;
+  }
+
+  @if $size == "large" {
+    width: 230px;
+    height: 68px;
+  }
+
+  @content;
+}

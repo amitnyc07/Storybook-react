@@ -1,0 +1,165 @@
+@import "/src/assets/scss/shared";
+
+.subscription {
+  @include display-flex {
+    padding: 16px 16px 16px 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include media-breakpoint-up("md") {
+    height: 80px;
+    padding: 24px 32px 16px 10px;
+  }
+
+  @include media-breakpoint-up("xxl") {
+    height: 116px;
+    padding: 24px 48px 24px 16px;
+  }
+
+  &__wrapper {
+    @include display-flex(column) {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 3px rgba($color: $color-black, $alpha: 0.4);
+    }
+  }
+
+  &__box {
+    @include display-flex(column) {
+      color: $color-primary;
+      min-width: 85px;
+    }
+
+    @include media-breakpoint-up("xxl") {
+      min-width: 125px;
+    }
+  }
+
+  &__label {
+    font-family: "Roboto-Bold";
+    font-size: 14px;
+    line-height: 8px;
+    margin-bottom: 8px;
+
+    @include media-breakpoint-up("xxl") {
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__service {
+    font-size: 10px;
+    line-height: 12px;
+
+    @include media-breakpoint-up("md") {
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    @include media-breakpoint-up("xxl") {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+  &__current {
+    font-size: 11px;
+    line-height: 15px;
+    color: $color-hyperlink;
+
+    @include media-breakpoint-up("md") {
+      font-family: "Roboto-Bold";
+      font-size: 12px;
+    }
+
+    @include media-breakpoint-up("xxl") {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+  &__amount {
+    @include display-flex {
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      width: 85px;
+      height: 20px;
+      background-color: $color-main;
+      color: $color-white;
+      font-family: "Roboto-Medium";
+      font-size: 10px;
+      line-height: 10px;
+    }
+
+    @include media-breakpoint-up("xxl") {
+      width: 125px;
+      height: 30px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+  &__remaining {
+    @include display-flex {
+      position: relative;
+      align-items: center;
+      background-color: $color-main;
+      font-size: 10px;
+      line-height: 12px;
+      height: 15px;
+      color: $color-white;
+      margin-top: auto;
+    }
+
+    &::before {
+      position: absolute;
+      font-family: "Roboto-Light";
+      content: "Minutes Remaining";
+      width: 100%;
+      text-align: center;
+    }
+
+    span {
+      @include display-flex {
+        align-items: center;
+        justify-content: center;
+        font-family: "Roboto-Bold";
+        margin-left: auto;
+        width: 40px;
+        height: 100%;
+        background-color: $color-hyperlink;
+      }
+    }
+
+    @include media-breakpoint-up("md") {
+      &::before {
+        position: relative;
+        flex-basis: 0;
+        flex-grow: 1;
+      }
+
+      span {
+        width: 170px;
+      }
+    }
+
+    @include media-breakpoint-up("xxl") {
+      height: 24px;
+      font-size: 12px;
+      line-height: 16px;
+
+      span {
+        width: 250px;
+      }
+    }
+  }
+}
+
+.fade {
+  &--enter {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
